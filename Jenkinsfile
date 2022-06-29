@@ -18,4 +18,16 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            echo 'Always build executed'
+        }
+        success {
+            echo 'success build executed'
+
+        }
+        failure {
+            echo 'failure build executed'
+        }
+    }
 }

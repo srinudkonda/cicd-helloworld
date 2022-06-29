@@ -1,8 +1,14 @@
+CODE_CHANGES = getGitChanges()
 pipeline {
     agent any
 
     stages {
         stage('dev') {
+            when {
+                expression {
+                    BRANCH_NAME = 'main' && CODE_CHANGES == true
+                }
+            }
             steps {
                 echo 'Hello World -dev'
             }
